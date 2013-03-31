@@ -31,7 +31,8 @@ static int jit_busy_fn(char *buf,char **start,off_t offset,int count,int *eof,vo
 		j1 = jiffies;
 		count = sprintf(buf,"%9li,%9li\n",j0,j1);		
 	//}		
-	*start = buf;
+	//*start = buf;
+	*eof = 1;
 	return count;
 }
 static int jit_sched_fn(char *buf,char **start,off_t offset,int count,int *eof,void *data){
@@ -45,7 +46,8 @@ static int jit_sched_fn(char *buf,char **start,off_t offset,int count,int *eof,v
 		j1 = jiffies;
 		count = sprintf(buf,"%9li,%9li\n",j0,j1);		
 	//}		
-	*start = buf;
+	//*start = buf;
+	*eof = 1;
 	return count;
 		
 }
@@ -59,7 +61,8 @@ static int jit_queue_fn(char *buf,char **start,off_t offset,int count,int *eof,v
 		j1 = jiffies;
 		count = sprintf(buf,"%9li,%9li\n",j0,j1);		
 	//}		
-	*start = buf;
+	//*start = buf;
+	*eof = 1;
 	return count;
 		
 }
@@ -75,7 +78,8 @@ static int jit_schedto_fn(char *buf,char **start,off_t offset,int count,int *eof
 		}while(temp);
 		count = sprintf(buf,"%9li,%9li\n",j0,j1);		
 	//}		
-	*start = buf;
+	//*start = buf;
+	*eof = 1;
 	return count;
 		
 }
